@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Mark Sheet</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="layout-container">
+        <div class="main-content">
+            <div id="step1" class="step">
+                <h2>Upload Topic CSV</h2>
+                <label for="csvFile">Upload Topic CSV:</label>
+                <input type="file" id="csvFile" accept=".csv">
+                <br>
+                <label for="rollNoCsvFile">Upload Roll Numbers CSV (optional):</label>
+                <input type="file" id="rollNoCsvFile" accept=".csv">
+                <br>
+                <button onclick="handleCsvUpload()">Upload and Generate Topics</button>
+            </div>
+
+            <div id="step2" class="step" style="display: none;">
+                <h2>Enter Details for Each Topic</h2>
+                <div id="topicsContainer"></div>
+            </div>
+
+            <div id="step3" class="step" style="display: none;">
+                <h2 id="studentTitle"></h2>
+                <div id="questionsContainer"></div>
+                <div class="button-container">
+                    <button onclick="prevTopic()">Previous Topic</button>
+                    <button onclick="nextTopic()">Next Topic</button>
+                </div>
+            </div>
+
+            <div id="report" style="display: none;">
+                <div id="reportContainer"></div>
+                <button onclick="downloadCSV()">Download CSV</button>
+                <button onclick="logout()">Logout</button>
+            </div>
+        </div>
+
+        <div id="navigationPanel" class="navigation-panel"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
